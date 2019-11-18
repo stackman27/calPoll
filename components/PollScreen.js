@@ -1,86 +1,67 @@
-import React, { Component } from 'react';
-import {View} from 'react-native';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
-//import './App.css';
- 
-// list of items
-const list = [
-  { name: 'item1' },
-  { name: 'item2' },
-  { name: 'item3' },
-  { name: 'item4' },
-  { name: 'item5' },
-  { name: 'item6' },
-  { name: 'item7' },
-  { name: 'item8' },
-  { name: 'item9' }
-];
- 
-// One item component
-// selected prop will be passed
-const MenuItem = ({text, selected}) => {
-  return <View
-    className={`menu-item ${selected ? 'active' : ''}`}
-    >{text}</View>;
-};
- 
-// All items component
-// Important! add unique key
-export const Menu = (list, selected) =>
-  list.map(el => {
-    const {name} = el;
- 
-    return <MenuItem text={name} key={name} selected={selected} />;
-  });
- 
- 
-const Arrow = ({ text, className }) => {
-  return (
-    <View
-      className={className}
-    >{text}</View>
-  );
-};
- 
- 
-const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
- 
-const selected = 'item1';
- 
-class PollScreen extends Component {
-  constructor(props) {
-    super(props);
-    // call it again if items count changes
-    this.menuItems = Menu(list, selected);
-  }
- 
-  state = {
-    selected
-  };
- 
-  onSelect = key => {
-    this.setState({ selected: key });
-  }
- 
- 
-  render() {
-    const { selected } = this.state;
-    // Create menu from items
-    const menu = this.menuItems;
- 
-    return (
-      <View className="App">
-        <ScrollMenu
-          data={menu}
-          arrowLeft={ArrowLeft}
-          arrowRight={ArrowRight}
-          selected={selected}
-          onSelect={this.onSelect}
-        />
-      </View>
-    );
-  }
-}
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Carousel from 'react-native-snap-carousel';
+import randomColor from 'randomcolor'
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default PollScreen
+class PollScreen extends React.Component {
+
+    constructor() {
+        super()
+        this.state = {
+            entries: [
+                { title: 'hello World' },
+                { title: 'Hello Again' },
+                { title: 'hello World' },
+                { title: 'Hello Again' },
+                { title: 'hello World' },
+                { title: 'Hello Again' },
+                
+              ]
+        }
+      }
+
+ _renderItem ({item, index}) {
+   return (
+      <View style={{margin: 40, height: 600 , flex: 1, shadowOffset: {width: 0, height: 5}, shadowOpacity: 0.3, shadowRadius: 6,}}>
+         
+            <View style = {{backgroundColor: '#eee', borderTopRightRadius: 20, borderTopLeftRadius: 20,  flex: 2, justifyContent: 'center', alignItems: 'center'}}>  
+            <TouchableOpacity>  
+                <Text style = {{fontSize: 36, fontWeight: 'bold', color: 'gray'}}> { item.title }</Text>
+                </TouchableOpacity>
+            </View>
+        
+
+          
+            <View style = {{backgroundColor: randomColor(), borderBottomLeftRadius: 20, borderBottomRightRadius: 20, flex: 4, justifyContent: 'center', alignItems: 'center'}}> 
+                <TouchableOpacity  >
+                    <Text style = {{fontSize: 26, fontWeight: 'bold', color: 'white'}}> loren ipsum doren </Text> 
+                </TouchableOpacity>
+            </View> 
+       
+      </View>
+);}
+ render () {
+   return (
+       <View style = {styles.container}> 
+        <Carousel
+            ref={(c) => { this._carousel = c; }}
+            data={this.state.entries}
+            renderItem={this._renderItem}
+            sliderWidth={450}
+            itemWidth={400}
+            layout={'default'} 
+        />
+    </View>
+); 
+}} 
+
+
+    const styles = StyleSheet.create({
+        container: {
+        flex: 1, 
+        alignItems: 'center',
+        justifyContent: 'center',
+    }});
+
+   export default PollScreen;

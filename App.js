@@ -5,7 +5,6 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import {createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
 import PollScreen from './components/PollScreen';
  
 
