@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import Logo from "./Logo";
-import LoginUser from "./ModelForms/LoginUser";
+import LoginComponent from "./ModelForms/LoginComponent";
 
 var { width } = Dimensions.get("window");
 
@@ -28,7 +28,7 @@ class Login extends React.Component {
         </View>
 
         <View style={{ backgroundColor: "#fff", flex: 5 }}>
-          <LoginUser type="Login" pressChange={this.props.navigation} />
+          <LoginComponent type="Login" pressChange={this.props.navigation} />
 
           <View style={styles.signupTextCont}>
             <TouchableOpacity onPress={this._gotoSignup}>

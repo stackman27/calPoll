@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import Logo from "./Logo";
-import SignUpUser from "./ModelForms/SignupUser";
+import SignupComponent from "./ModelForms/SignupComponent";
 
 class SignUp extends React.Component {
   _gotoSignin = () => {
@@ -14,7 +14,7 @@ class SignUp extends React.Component {
       <View style={styles.container}>
         <Text style={styles.title}>Sign up</Text>
 
-        <SignUpUser />
+        <SignupComponent />
 
         <View style={styles.signupTextCont}>
           <TouchableOpacity onPress={this._gotoSignin}>
@@ -28,7 +28,7 @@ class SignUp extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#000",
+    backgroundColor: "#fff",
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   signupButton: {
-    color: "#ffffff",
+    color: "#000",
     fontSize: 18,
     fontWeight: "700"
   },
