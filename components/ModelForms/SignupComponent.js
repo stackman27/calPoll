@@ -4,7 +4,7 @@ import {StyleSheet, Platform, TextInput,  Form, Text, View, StatusBar, FlatList,
 var width = Dimensions.get('window').width; //full width
 
 
-class SignUpUser extends React.Component { 
+class SignupComponent extends React.Component { 
   
   constructor(props){
     super(props);
@@ -72,7 +72,6 @@ class SignUpUser extends React.Component {
               placeholder="Name"
               name = "name"
               placeholderTextColor = "gray"
-              selectionColor="gray"
               keyboardType="default"
               onChangeText = {(name) => this.setState({name}) }
               value = {this.state.name}
@@ -82,27 +81,15 @@ class SignUpUser extends React.Component {
               placeholder="Email"
               name = "email"
               placeholderTextColor = "gray"
-              selectionColor="gray" 
               keyboardType="email-address"
               onChangeText = {(email) => this.setState({email})}
               value = {this.state.email}
-              />
-
-           <TextInput style={styles.inputBox}  
-              placeholder="Id Number"
-              name = "idnumber"
-              placeholderTextColor = "gray"
-              selectionColor="gray" 
-              keyboardType= {"numeric"}
-              onChangeText = {(idnumber) => this.setState({idnumber})}
-              value = {this.state.idnumber}
               />
 
           <TextInput style={styles.inputBox}  
               placeholder="Password"
               name = "password"
               placeholderTextColor = "gray"
-              selectionColor="gray" 
               secureTextEntry={true}
               onChangeText = {(password) => this.setState({password})}
               value = {this.state.password}
@@ -111,7 +98,6 @@ class SignUpUser extends React.Component {
           <TextInput style={styles.inputBox}  
               placeholder="Confirm Password"
               placeholderTextColor = "gray"
-              selectionColor="gray" 
               name = "c_password"
               secureTextEntry={true}
               onChangeText = {(c_password) => this.setState({c_password})}
@@ -138,8 +124,8 @@ const styles = StyleSheet.create({
 
   inputBox: {
     width: width - 30,
-    backgroundColor:'#fff',
-    borderRadius: 25,
+    backgroundColor:'#E3F4FE',
+    borderRadius: 10,
     padding:10,
     paddingLeft: 20, 
     fontSize:16,
@@ -159,7 +145,7 @@ const styles = StyleSheet.create({
   
   button: {
     width:300,
-    backgroundColor:'#1c313a',
+    backgroundColor:'#1D71F2',
      borderRadius: 25,
       marginVertical: 10,
       paddingVertical: 13
@@ -174,4 +160,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default SignUpUser;
+export default SignupComponent;

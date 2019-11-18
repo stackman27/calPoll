@@ -3,14 +3,15 @@ import {StyleSheet, TextInput,  Form, Text, View, StatusBar, FlatList, Touchable
 
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import Leaderboards from './components/Leaderboards'
 import {createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import PollScreen from './components/PollScreen';
  
 
 const MainNavigator = createStackNavigator({
-  PollScreen: 
-      {screen: PollScreen,
+  Login: 
+      {screen: Login,
         navigationOptions: {
           header: null
         }
