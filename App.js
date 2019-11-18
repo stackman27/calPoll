@@ -10,8 +10,8 @@ import PollScreen from './components/PollScreen';
  
 
 const MainNavigator = createStackNavigator({
-  PollScreen: 
-      {screen: PollScreen,
+  Login: 
+      {screen: Login,
         navigationOptions: {
           header: null
         }

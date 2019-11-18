@@ -58,7 +58,7 @@ class LoginUser extends Component {
               underlineColorAndroid='rgba(0,0,0,0)' 
               placeholder="Email"
               placeholderTextColor = "gray"
-              selectionColor="gray"
+              selectionColor="#1D71F2"
               name = "email"
               keyboardType="email-address"
               onSubmitEditing={()=> this.password.focus()}
@@ -92,9 +92,11 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
+    backgroundColor: '#E3F4FE',
     width: width - 30,
     borderBottomColor: 'gray',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0,
+    borderRadius: 10,
    
     paddingLeft: 20, 
     fontSize:16,
@@ -113,7 +115,7 @@ const styles = StyleSheet.create({
 
   button: {
     width:300,
-    backgroundColor:'#414194',
+    backgroundColor:'#1D71F2',
      borderRadius: 25,
       marginVertical: 10,
       paddingVertical: 13
