@@ -11,7 +11,7 @@ class Login extends React.Component {
  
 
     _gotoSignup = () => {
-         this.props.navigation.navigate('SignUpScreen'); 
+         this.props.navigation.navigate('Signupscreen'); 
      
     }
 

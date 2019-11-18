@@ -4,7 +4,7 @@ import {StyleSheet, Platform, TextInput,  Form, Text, View, StatusBar, FlatList,
 var width = Dimensions.get('window').width; //full width
 
 
-export default class RegisterUser extends React.Component { 
+class SignUpUser extends React.Component { 
   
   constructor(props){
     super(props);
@@ -71,8 +71,8 @@ export default class RegisterUser extends React.Component {
           <TextInput style={styles.inputBox}  
               placeholder="Name"
               name = "name"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff"
+              placeholderTextColor = "gray"
+              selectionColor="gray"
               keyboardType="default"
               onChangeText = {(name) => this.setState({name}) }
               value = {this.state.name}
@@ -81,8 +81,8 @@ export default class RegisterUser extends React.Component {
           <TextInput style={styles.inputBox}  
               placeholder="Email"
               name = "email"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff" 
+              placeholderTextColor = "gray"
+              selectionColor="gray" 
               keyboardType="email-address"
               onChangeText = {(email) => this.setState({email})}
               value = {this.state.email}
@@ -91,8 +91,8 @@ export default class RegisterUser extends React.Component {
            <TextInput style={styles.inputBox}  
               placeholder="Id Number"
               name = "idnumber"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff" 
+              placeholderTextColor = "gray"
+              selectionColor="gray" 
               keyboardType= {"numeric"}
               onChangeText = {(idnumber) => this.setState({idnumber})}
               value = {this.state.idnumber}
@@ -101,8 +101,8 @@ export default class RegisterUser extends React.Component {
           <TextInput style={styles.inputBox}  
               placeholder="Password"
               name = "password"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff" 
+              placeholderTextColor = "gray"
+              selectionColor="gray" 
               secureTextEntry={true}
               onChangeText = {(password) => this.setState({password})}
               value = {this.state.password}
@@ -110,8 +110,8 @@ export default class RegisterUser extends React.Component {
 
           <TextInput style={styles.inputBox}  
               placeholder="Confirm Password"
-              placeholderTextColor = "#ffffff"
-              selectionColor="#fff" 
+              placeholderTextColor = "gray"
+              selectionColor="gray" 
               name = "c_password"
               secureTextEntry={true}
               onChangeText = {(c_password) => this.setState({c_password})}
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
 
   inputBox: {
     width: width - 30,
-    backgroundColor:'#A167AC',
+    backgroundColor:'#fff',
     borderRadius: 25,
     padding:10,
     paddingLeft: 20, 
@@ -173,3 +173,5 @@ const styles = StyleSheet.create({
   }
 
 });
+
+export default SignUpUser;

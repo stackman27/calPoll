@@ -15,7 +15,15 @@ const MainNavigator = createStackNavigator({
         }
       },
 
-  SignUpScreen: {screen: SignUp},
+  Signupscreen: 
+      {
+        screen: SignUp,
+        navigationOptions: {
+          header: null,
+        }
+      },
+
+
 }, {headerMode: 'screen'});
 
 const App = createAppContainer(MainNavigator);
