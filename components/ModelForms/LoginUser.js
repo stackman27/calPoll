@@ -33,11 +33,12 @@ class LoginUser extends Component {
  
   handleSubmit(e){
     e.preventDefault(); 
-        console.log("LOGIN USER")
+    
+    this.gotoOverlay()
   }
 
   gotoOverlay = () => { 
-    this.props.pressChange.navigate('OverlayScreen');
+    this.props.pressChange.navigate('PollScreen');
     
 }
  

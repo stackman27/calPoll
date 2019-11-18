@@ -5,11 +5,13 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import {createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+
+import PollScreen from './components/PollScreen';
  
 
 const MainNavigator = createStackNavigator({
-  LoginScreen: 
-      {screen: Login,
+  PollScreen: 
+      {screen: PollScreen,
         navigationOptions: {
           header: null
         }
@@ -22,7 +24,13 @@ const MainNavigator = createStackNavigator({
           header: null,
         }
       },
-
+ 
+  PollScreen: 
+  {screen: PollScreen,
+    navigationOptions: {
+      header: null
+    }
+  },
 
 }, {headerMode: 'screen'});
 
