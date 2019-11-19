@@ -10,6 +10,7 @@ import {
 
 import Logo from "./Logo";
 import LoginComponent from "./ModelForms/LoginComponent";
+// color template: https://www.schemecolor.com/apple-weather-app-icon-2017-colors.php
 
 var { width } = Dimensions.get("window");
 
