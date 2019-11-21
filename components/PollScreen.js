@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import randomColor from 'randomcolor'
 import { TouchableOpacity } from 'react-native-gesture-handler';
-
+ 
 class PollScreen extends React.Component {
 
     constructor() {
@@ -45,11 +45,7 @@ class PollScreen extends React.Component {
  render () {
    return (
        <View style = {styles.container}> 
-       
-       <View> 
-            <Text> Cal Poll</Text>
-        </View>
-
+ 
         <Carousel
             ref={(c) => { this._carousel = c; }}
             data={this.state.entries}
