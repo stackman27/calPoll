@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, StatusBar, Dimensions} from 'react-native';
+import { StyleSheet, View, Button, StatusBar, Dimensions} from 'react-native';
+import { Icon, Text } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel';
 import randomColor from 'randomcolor'
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -8,6 +9,28 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 var { width } = Dimensions.get("window");
 
 class PollScreen extends React.Component {
+
+    static navigationOptions = ({ navigation }) => {
+   
+        return { 
+          headerLeft: ( 
+            <Text style = {{marginLeft: 20, marginTop: 30, fontSize: 32, fontWeight: 'bold', height: '100%'}}> Cal Poll </Text>
+            ),
+          headerRight: (
+            <Icon raised name='user' type='font-awesome' color='#f50' size = {20} containerStyle = {{marginRight: 10}} onPress={() => navigation.navigate('MyProfileScreen')} />
+            ),
+            
+            headerStyle: { 
+                height: 75, 
+                borderColor: '#eee',
+                
+                shadowOffset: {width: 0, height: 5},
+                  shadowOpacity: 0.1, 
+                  shadowRadius: 6,
+            }
+
+        };
+      };
 
     constructor() {
         super()
@@ -27,7 +50,7 @@ class PollScreen extends React.Component {
  
  _renderItem ({item, index}) {
    return (
-      <View style={{marginBottom: 20, marginTop: 20, height: 300 , flex: 1, }}>
+      <View style={{marginBottom: 20,height: 300 , flex: 1, }}>
          
             <View style = {{backgroundColor: '#eee', borderTopRightRadius: 20, borderTopLeftRadius: 20,  flex: 2, justifyContent: 'center', alignItems: 'center'}}>  
             <TouchableOpacity>  
