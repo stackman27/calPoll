@@ -1,9 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, StatusBar} from 'react-native';
+import { StyleSheet, Text, View, Button, StatusBar, Dimensions} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import randomColor from 'randomcolor'
 import { TouchableOpacity } from 'react-native-gesture-handler';
  
+
+var { width } = Dimensions.get("window");
 
 class PollScreen extends React.Component {
 
@@ -51,7 +53,7 @@ class PollScreen extends React.Component {
             ref={(c) => { this._carousel = c; }}
             data={this.state.entries}
             renderItem={this._renderItem}
-            sliderWidth={350}
+            sliderWidth={width}
             itemWidth={300}
             layout={'default'} 
            
