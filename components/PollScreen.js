@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, StatusBar} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import randomColor from 'randomcolor'
 import { TouchableOpacity } from 'react-native-gesture-handler';
  
+
 class PollScreen extends React.Component {
 
     constructor() {
@@ -21,10 +22,10 @@ class PollScreen extends React.Component {
         }
       }
 
-    
+ 
  _renderItem ({item, index}) {
    return (
-      <View style={{marginBottom: 20, marginTop: 20, height: 300 , flex: 1, shadowOffset: {width: 0, height: 5}, shadowOpacity: 0.3, shadowRadius: 6,}}>
+      <View style={{marginBottom: 20, marginTop: 20, height: 300 , flex: 1, }}>
          
             <View style = {{backgroundColor: '#eee', borderTopRightRadius: 20, borderTopLeftRadius: 20,  flex: 2, justifyContent: 'center', alignItems: 'center'}}>  
             <TouchableOpacity>  
