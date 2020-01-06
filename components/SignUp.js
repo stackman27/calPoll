@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-
 import Logo from "./Logo";
 import SignupComponent from "./ModelForms/SignupComponent";
-
+ import firebase from '../Firebase'; 
+ 
 class SignUp extends React.Component {
+ 
   _gotoSignin = () => {
     this.props.navigation.navigate("Login");
   };

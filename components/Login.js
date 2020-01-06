@@ -22,7 +22,7 @@ class Login extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{ flex: 2 }}>
+        <View style={{ flex: 2 }}> 
           <Logo />
 
           <View style={styles.fidgetSpinner}></View>

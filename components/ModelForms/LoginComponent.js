@@ -9,6 +9,8 @@ import {
   Button,
   Platform
 } from "react-native";
+import firebase from '../../Firebase'; 
+ 
 
 //import Spinner from 'react-native-loading-spinner-overlay';
 
@@ -20,24 +22,23 @@ class LoginComponent extends Component {
 
     this.state = {
       email: "",
-      password: "",
-      apiToken: "",
-      spinner: false
+      password: "", 
+      errorMessage: null,
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    this.gotoOverlay();
+ 
+  handleLogin = () => {
+  
+    const { email, password } = this.state 
+      firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then(() => this.props.navigation.navigate('PollScreen'))
+            .catch(error => this.setState({errorMessage: error.message}))
   }
-
-  gotoOverlay = () => {
-    this.props.pressChange.navigate("PollScreen");
-  };
-
+  
   render() {
     return (
       <View style={styles.container}>
@@ -69,7 +70,7 @@ class LoginComponent extends Component {
           onChangeText={password => this.setState({ password })}
           value={this.state.password}
         />
-        <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
+        <TouchableOpacity style={styles.button} onPress={this.handleLogin}>
           <Text style={styles.buttonText}>{this.props.type}</Text>
         </TouchableOpacity>
       </View>

@@ -2,15 +2,25 @@ import React from 'react';
 import {StyleSheet, TextInput,  Form, Text, View, StatusBar, FlatList, TouchableOpacity, Button, Dimensions, Platform } from 'react-native';
  
 import Login from './components/Login';
-import SignUp from './components/SignUp';
-import Leaderboards from './components/Leaderboards'
+import SignUp from './components/SignUp'; 
+import Loading from './components/Loading';
 import {createAppContainer} from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import PollScreen from './components/PollScreen';
 import MyProfile from './components/MyProfile';
+import Createpoll from './components/Createpoll';
+ 
 
 const MainNavigator = createStackNavigator({
-  Login: 
+
+  LoadingScreen: {
+    screen: Loading,
+    navigationOptions: {
+      header: null
+    }
+  },
+
+  LoginScreen: 
       {screen: Login,
         navigationOptions: {
           header: null
@@ -25,10 +35,11 @@ const MainNavigator = createStackNavigator({
         }
       },
  
-      PollScreen: 
-      { screen: PollScreen,  },
+      PollScreen:  { screen: PollScreen,  },
 
-       MyProfileScreen:  { screen: MyProfile, }  
+      MyProfileScreen:  { screen: MyProfile, },
+
+      CreatePollScreen: { screen: Createpoll, }
       
 
 }, {headerMode: 'screen'});

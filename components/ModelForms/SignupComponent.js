@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Platform, TextInput,  Form, Text, View, StatusBar, FlatList, TouchableOpacity,   Button, Dimensions} from 'react-native';
+import firebase from '../../Firebase'; 
  
 var width = Dimensions.get('window').width; //full width
 
@@ -8,58 +9,21 @@ class SignupComponent extends React.Component {
   
   constructor(props){
     super(props);
-
-    this.state = {
-      name: '',
-      email: '',
-      idnumber: '', 
-      password: '',
-      c_password: '', 
+    this.ref = firebase.firestore().collection('users');
+      
+    this.state = { 
+      email: '',  
+      password: '', 
     }
-
-    this.handleSubmit = this.handleSubmit.bind(this);
  
   }
 
-  handleSubmit(e){
-    e.preventDefault();
-    console.log(this.state);
-
-    let apiPostUser = 'http://fstedie.fatcow.com/public_html/index.php/api/register';
-
-    fetch(apiPostUser, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-
-      body: JSON.stringify({
-        name: this.state.name, 
-        email: this.state.email, 
-        idnumber: this.state.idnumber,
-        password: this.state.password, 
-        c_password: this.state.c_password
-      }), 
-    })
-    .then(function (data) {  
-      alert('Success');
-      this.clearStates();
-    })  
-    .catch(function (error) {  
-      console.log('Request failure: ', error);  
-    }); 
-    
-    clearStates = () => {
-        this.setState({
-          name: '',
-          email: '',
-          password: '',
-          idnumber: '',
-          c_password: '',
-        })
-      }
-  
+  handleSignup = () => {
+    firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => this.props.navigation.navigate('PollScreen'))
+            .catch(error => this.setState({  }) )
   }
 
    
@@ -68,14 +32,14 @@ class SignupComponent extends React.Component {
     return (
       <View style = {styles.container} >   
  
-          <TextInput style={styles.inputBox}  
+{/*           <TextInput style={styles.inputBox}  
               placeholder="Name"
               name = "name"
               placeholderTextColor = "gray"
               keyboardType="default"
               onChangeText = {(name) => this.setState({name}) }
               value = {this.state.name}
-              />
+              /> */}
 
           <TextInput style={styles.inputBox}  
               placeholder="Email"
@@ -95,16 +59,16 @@ class SignupComponent extends React.Component {
               value = {this.state.password}
               />
 
-          <TextInput style={styles.inputBox}  
+{/*           <TextInput style={styles.inputBox}  
               placeholder="Confirm Password"
               placeholderTextColor = "gray"
               name = "c_password"
               secureTextEntry={true}
               onChangeText = {(c_password) => this.setState({c_password})}
               value = {this.state.c_password}
-              />
+          /> */}
 
-            <TouchableOpacity style={styles.button} onPress = {this.handleSubmit}>
+            <TouchableOpacity style={styles.button} onPress = {this.handleSignup}>
              <Text style={styles.buttonText}>Sign Up</Text>
            </TouchableOpacity>     
           
@@ -129,7 +93,7 @@ const styles = StyleSheet.create({
     padding:10,
     paddingLeft: 20, 
     fontSize:16,
-    color:'white',
+    color:'black',
     marginVertical: 10,
     ...Platform.select({
       ios: {
