@@ -8,7 +8,7 @@ import firebase from '../Firebase';
 var { width } = Dimensions.get("window");
 
 class PollScreen extends React.Component {
-
+   
     static navigationOptions = ({ navigation }) => { 
         return { 
           headerLeft: ( 
@@ -176,7 +176,7 @@ class PollScreen extends React.Component {
       }
 
        
-     
+    // REDUDANT COMPONENT 
   _renderItem  = ({item, index}) => {
     return (
      
@@ -321,12 +321,10 @@ class PollScreen extends React.Component {
 
             }}
         />
-
-       
-    </View>
-); 
-}} 
-
+      </View>
+    );
+  }
+} 
 
     const styles = StyleSheet.create({
         container: {
@@ -345,4 +343,4 @@ class PollScreen extends React.Component {
   
   });
 
-   export default PollScreen;
+export default PollScreen;
