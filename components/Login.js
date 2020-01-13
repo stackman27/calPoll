@@ -71,12 +71,12 @@ const styles = StyleSheet.create({
   creator: {
     width: width,
     padding: 5,
-    backgroundColor: "#ccc",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
   },
   creatorText: {
-    color: "gray",
+    color: "#fff",
     textAlign: "center"
   }
 });

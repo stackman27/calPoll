@@ -21,7 +21,7 @@ const MainNavigator = createStackNavigator({
   },
 
   LoginScreen: 
-      {screen: Login,
+      {screen: PollScreen,
         navigationOptions: {
           header: null
         }
@@ -29,7 +29,7 @@ const MainNavigator = createStackNavigator({
 
   Signupscreen: 
       {
-        screen: SignUp,
+        screen: PollScreen,
         navigationOptions: {
           header: null,
         }
